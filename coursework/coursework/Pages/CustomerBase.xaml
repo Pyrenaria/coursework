@@ -1,0 +1,132 @@
+﻿<Page x:Class="coursework.Pages.CustomerBase"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:coursework.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="900"
+      Title="CustomerBase">
+
+    <Grid Background="#DABDAB">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Orientation="Vertical"
+                    VerticalAlignment="Stretch"
+                    Background="#DABDAB">
+
+            <TextBlock Text="Фильтры"
+                       FontSize="20"
+                       Margin="10" 
+                       FontFamily="Century Gothic"
+                       HorizontalAlignment="Center"/>
+
+            <TextBlock Text="ФИО заказчика"
+                       FontSize="15" HorizontalAlignment="Left"
+                       FontFamily="Century Gothic"
+                       Margin="10, 5, 5, 5"/>
+
+            <TextBox Name="txtName" FontSize="12"
+                     FontFamily="Century Gothic"
+                     Width="235" Height="20"
+                     Margin="5"/>
+
+
+            <Button Name="fltr"
+                    Content="Поиск" FontSize="15"
+                    Click="fltr_Click"
+                    Width="100" Height="25"
+                    Style="{StaticResource StyleBtn}"
+                    Margin="5"/>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical"
+            VerticalAlignment="Stretch"
+            Grid.Row="1"
+            Background="#DABDAB">
+
+            <TextBlock Text="Функциональные кнопки" 
+                       TextWrapping="Wrap" TextAlignment="Center"
+                       Margin="10"
+                       FontSize="20"
+                       FontFamily="Century Gothic"
+                       HorizontalAlignment="Center"/>
+
+            <Button Name="BtnAdd"
+                    Style="{StaticResource StyleBtn}"
+                    Width="150" Height="25"
+                    Content="Добавление"
+                    Margin="5" FontSize="15"
+                    Click="BtnAdd_Click"/>
+
+            <Button Name="BtnDel"
+                    Style="{StaticResource StyleBtn}"
+                    Width="150" Height="25"
+                    Content="Удаление"
+                    Margin="5" FontSize="15"
+                    Click="BtnDel_Click"/>
+
+            <Button Name="BtnEdit"
+                    Style="{StaticResource StyleBtn}"
+                    Width="150" Height="25"
+                    Content="Редактирование"
+                    Margin="5" FontSize="15"
+                    Click="BtnEdit_Click"/>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical"
+                    VerticalAlignment="Bottom"
+                    Grid.Row="2" Margin="25"
+                    Background="#DABDAB">
+
+            
+            <Button Name="Back" 
+                    Content="Назад"
+                    Width="150" Height="25"
+                    Style="{StaticResource StyleBtn}"
+                    Click="Back_Click"/>
+
+        </StackPanel>
+
+        <DataGrid Grid.Column="1"
+                  Name="dtgListGrades"
+                  AutoGenerateColumns="False"
+                  Grid.RowSpan="3">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ФИО заказчика"
+                                    Binding="{Binding fcs}"
+                                    FontFamily="Century Gothic"
+                                    Width="3*"/>
+                <DataGridTextColumn Header="Номер заказа"
+                                    Binding="{Binding name}"
+                                    FontFamily="Century Gothic"
+                                    Width="1.5*"/>
+                <DataGridTextColumn Header="Цена"
+                                    Binding="{Binding classID}"
+                                    FontFamily="Century Gothic"
+                                    Width="1*"/>
+                <DataGridTextColumn Header="Телефон"
+                                    Binding="{Binding grade}"
+                                    FontFamily="Century Gothic"
+                                    Width="1.5*"/>
+                <DataGridTextColumn Header="Дата заказа"
+                                    Binding="{Binding date, StringFormat='dd.MM.yyyy'}"
+                                    FontFamily="Century Gothic"
+                                    Width="1*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Page>
